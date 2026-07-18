@@ -55,6 +55,7 @@ This project implements a **star schema data warehouse** for the [Brazilian E-Co
         │(3,088)     │            │(98,410)     │
         └────────────┘            └─────────────┘
 ```
+<img width="3060" height="2160" alt="olist_star_schema" src="https://github.com/user-attachments/assets/389f0def-bb7a-46c9-8739-596a179cbe41" />
 
 ### Design Decisions
 
