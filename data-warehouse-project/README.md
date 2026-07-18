@@ -21,40 +21,6 @@ This project implements a **star schema data warehouse** for the [Brazilian E-Co
 
 ### Star Schema Design
 
-```
-                    ┌─────────────────┐
-                    │   dim_date      │
-                    │ (634 calendar   │
-                    │  days: 2016-19) │
-                    └────────┬────────┘
-                             │ date_key
-                             │
-        ┌────────────┐       │       ┌──────────────┐
-        │dim_customer│       │       │dim_products  │
-        │(SCD Type 2)│       │       │(32,951 items)│
-        │ (current   │       │       │              │
-        │  versions) │       │       │              │
-        └─────┬──────┘       │       └────────┬─────┘
-              │ customer_key │ product_key    │
-              │              │                │
-              └──────────────┼────────────────┘
-                             ↓
-                  ┌──────────────────────┐
-                  │ fact_order_items     │
-                  │ (1.1M order items)   │
-                  │ Grain: order_item    │
-                  │ Clustered on:        │
-                  │ (date_key, product)  │
-                  └──────────────────────┘
-                             ↑
-              ┌──────────────┴──────────────┐
-              │ seller_key                  │
-              │                             │
-        ┌─────┴──────┐            ┌────────┴────┐
-        │dim_sellers │            │fact_reviews │
-        │(3,088)     │            │(98,410)     │
-        └────────────┘            └─────────────┘
-```
 <img width="3060" height="2160" alt="olist_star_schema" src="https://github.com/user-attachments/assets/389f0def-bb7a-46c9-8739-596a179cbe41" />
 
 ### Design Decisions
